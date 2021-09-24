@@ -17,10 +17,10 @@ public class ScreenList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_list);
 
-        Fade fade = new Fade();
-        View decor = getWindow().getDecorView();
-
-        getWindow().setEnterTransition(fade);
+//        Fade fade = new Fade();
+//        View decor = getWindow().getDecorView();
+//
+//        getWindow().setEnterTransition(fade);
 
 
         imageView.findViewById(R.id.imgLa);
@@ -44,17 +44,6 @@ public class ScreenList extends AppCompatActivity {
         });
 
     }
-
-    private void vaoChiTietLight() {
-        startActivity(new Intent(getApplicationContext(),Ttlight.class));
-        overridePendingTransition(R.anim.list_sang_main,R.anim.list_to_main);
-    }
-
-    private void vaoChiTietLa() {
-        startActivity(new Intent(getApplicationContext(),Ttlavender.class));
-        overridePendingTransition(R.anim.list_sang_main,R.anim.list_to_main);
-    }
-
     private void vaoChiTietGreen() {
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
         overridePendingTransition(R.anim.list_sang_main,R.anim.list_to_main);
