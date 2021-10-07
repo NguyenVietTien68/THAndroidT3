@@ -11,41 +11,51 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class ScreenList extends AppCompatActivity {
-    ImageView imageView, imageView2;
+    ImageView imgLa, imgLi, imgShort, imgYellow, imgGreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_list);
 
-//        Fade fade = new Fade();
-//        View decor = getWindow().getDecorView();
-//
-//        getWindow().setEnterTransition(fade);
+        imgLa = findViewById(R.id.imgLa);
+        imgLi = findViewById(R.id.imgLi);
+        imgShort = findViewById(R.id.imgShort);
+        imgYellow = findViewById(R.id.imgYellow);
+        imgGreen = findViewById(R.id.imgGreen);
 
-
-        imageView.findViewById(R.id.imgLa);
-        imageView2.findViewById(R.id.imgLi);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imgLa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScreenList.this, Ttlavender.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        ScreenList.this, imageView, ViewCompat.getTransitionName(imageView));
+                        ScreenList.this, imgLa, ViewCompat.getTransitionName(imgLa));
                 startActivity(intent, options.toBundle());
             }
         });
 
-        findViewById(R.id.txtGreen).setOnClickListener(new View.OnClickListener() {
+        imgLi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vaoChiTietGreen();
+                Intent intent = new Intent(ScreenList.this, Ttlight.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        ScreenList.this, imgLi, ViewCompat.getTransitionName(imgLi));
+                startActivity(intent, options.toBundle());
+            }
+        });
+
+        imgGreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScreenList.this, MainActivity.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        ScreenList.this, imgGreen, ViewCompat.getTransitionName(imgGreen));
+                startActivity(intent, options.toBundle());
             }
         });
 
     }
-    private void vaoChiTietGreen() {
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-        overridePendingTransition(R.anim.list_sang_main,R.anim.list_to_main);
-    }
+//    private void vaoChiTietGreen() {
+//        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//        overridePendingTransition(R.anim.list_sang_main,R.anim.list_to_main);
+//    }
 }
